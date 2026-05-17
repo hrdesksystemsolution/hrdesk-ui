@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <Router basename="/hrdesk_new/ui">
       <Routes>
         <Route
           path="/login"
