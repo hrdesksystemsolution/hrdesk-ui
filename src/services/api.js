@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// Use relative path to leverage React's proxy configured in package.json
-const API_BASE_URL = '/api';
+const API_BASE_URL = '/hrdesk_new/service/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -34,7 +33,7 @@ api.interceptors.response.use(
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      window.location.href = '/login';
+      window.location.href = '/hrdesk_new/ui/login';
     }
     return Promise.reject(error);
   }
@@ -51,7 +50,7 @@ export const authAPI = {
 // Test endpoint to verify API connectivity
 export const testAPI = () => {
   console.log('Testing API connectivity...');
-  return fetch('/api/auth/login', {
+  return fetch('/hrdesk_new/service/api/auth/login', {
     method: 'OPTIONS',
     headers: {
       'Content-Type': 'application/json',
